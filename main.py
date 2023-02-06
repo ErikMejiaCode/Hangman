@@ -1,9 +1,11 @@
 import random
+import os
 from hangman_words import word_list
 from hangman_art import stages 
 from hangman_art import logo
 
-
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 
@@ -23,6 +25,8 @@ for _ in range(word_length):
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
+
+    cls()
 
     if guess in display:
         print(f"{guess} has already been used. Try another letter.")
